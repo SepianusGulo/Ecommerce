@@ -50,6 +50,9 @@
                                 </li>
                             @endif
                         @else
+                       <li class="nav-item">
+                                <a class="nav-link" href="{{ url('user') }}">{{ __('Login') }}</a>
+                         </li>
                            <li class="nav-item">
                                <?php
                                  $pesanan_utama = \App\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();

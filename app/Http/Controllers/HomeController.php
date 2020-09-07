@@ -26,6 +26,6 @@ class HomeController extends Controller
     {
         $barangs = Barang::paginate(20);
 
-        return view('home', compact('barangs'));
+        return view('backend.dashboard.index', compact('barangs'));
     }
 }

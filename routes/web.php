@@ -39,22 +39,22 @@ Route::get('history/{id}', 'HistoryController@detail');
 
 
 //BACKEND
-Route::get('/signin','Backend\AuthController@index')->name('signin');
-Route::post('/postlogin','Backend\AuthController@postlogin')->name('postlogin');
-Route::get('/logout','Backend\AuthController@logout')->name('logout');
+Route::get('/signin', 'Backend\AuthController@index')->name('signin');
+Route::post('/postlogin', 'Backend\AuthController@postlogin')->name('postlogin');
+Route::get('/logout', 'Backend\AuthController@logout')->name('logout');
 
-Route::group(['middleware'=>['auth','checkRole:admin,siswa']],function(){
-        Route::get('/dashboard', 'Backend\DashboardController@index')->name('dashboard');
+Route::group(['middleware' => ['auth', 'checkRole:admin,siswa']], function () {
+    Route::get('/dashboard', 'Backend\DashboardController@index')->name('dashboard');
 });
 
-Route::group(['middleware'=>['auth','checkRole:admin']],function(){
-        Route::get('/siswa', 'Backend\SiswaController@index')->name('siswa');
-        Route::post('/siswa/create', 'Backend\SiswaController@create')->name('siswa.create');
-        Route::get('/siswa/{id}/edit', 'Backend\SiswaController@edit')->name('siswa.edit');
-        Route::post('/siswa/{id}/update', 'Backend\SiswaController@update')->name('siswa.update');
-        Route::get('/siswa/{id}/delete', 'Backend\SiswaController@delete')->name('siswa.delete');
-        Route::get('/siswa/{id}/profile','Backend\SiswaController@profile')->name('profile');
-        Route::post('/siswa/{id}/addnilai','Backend\SiswaController@addnilai')->name('addnilai');
-        Route::get('/siswa/{id}/{idmapel}/deletenilai','Backend\SiswaController@deletenilai')->name('deletenilai');
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
+    Route::get('/siswa', 'Backend\SiswaController@index')->name('siswa');
+    Route::post('/siswa/create', 'Backend\SiswaController@create')->name('siswa.create');
+    Route::get('/siswa/{id}/edit', 'Backend\SiswaController@edit')->name('siswa.edit');
+    Route::post('/siswa/{id}/update', 'Backend\SiswaController@update')->name('siswa.update');
+    Route::get('/siswa/{id}/delete', 'Backend\SiswaController@delete')->name('siswa.delete');
+    Route::get('/siswa/{id}/profile', 'Backend\SiswaController@profile')->name('profile');
+    Route::post('/siswa/{id}/addnilai', 'Backend\SiswaController@addnilai')->name('addnilai');
+    Route::get('/siswa/{id}/{idmapel}/deletenilai', 'Backend\SiswaController@deletenilai')->name('deletenilai');
+    Route::get('/user', 'Backend\UserController@index')->name('user');
 });
-

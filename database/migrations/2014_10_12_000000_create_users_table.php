@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('pendidikan_terakhir')->nullable();
+            $table->string('riwayat_pelatihan')->nullable();
+            $table->string('riwayat_pekerjaan')->nullable();
             $table->string('alamat')->nullable();
             $table->string('nohp')->nullable();
             $table->string('profile')->nullable();
